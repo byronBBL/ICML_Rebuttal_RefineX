@@ -6,7 +6,7 @@
 
 Full cost breakdown for a realistic pretraining scenario of **30T tokens** (a standard scale for frontier model pretraining).
 
-**Assumptions:** 72B expert on 8×H800 GPUs (~160 tokens/s); 0.6B refiner on same hardware (~8,000 tokens/s); avg. 500 tokens/doc; RefineX expert applied once to 5M seed docs.
+**Assumptions:** 72B expert on 8×H800 GPUs (160 tokens/s); 0.6B refiner on same hardware (~8,000 tokens/s); avg. 500 tokens/doc; RefineX expert applied once to 5M seed docs.
 
 **Table 1: End-to-end GPU cost comparison across methods (30T token pretraining scenario).**
 
@@ -18,4 +18,4 @@ Full cost breakdown for a realistic pretraining scenario of **30T tokens** (a st
 | ProX-C (0.6B refiner) | ~12,480 (one-time) | ~640 | ~1,920,000 | ~1,933,120 | Char-level |
 | **RefineX (ours)** | **~12,480 (one-time)** | **~640** | **~1,920,000** | **~1,933,120** | **Char-level** |
 
-> **Caption:** RefineX achieves the same total cost as ProX-C (~1.9M GPU-hrs) while delivering superior supervision quality via E2E-guided min-edit extraction. This is a 76× reduction vs. full E2E inference (~147.6M GPU-hrs), enabling char-level refinement at practical scale.
+> **Caption:** RefineX achieves the same total cost as ProX-C (1.9M GPU-hrs) while delivering superior supervision quality via E2E-guided min-edit extraction. This is a 76× reduction vs. full E2E inference (~147.6M GPU-hrs), enabling char-level refinement at practical scale.
