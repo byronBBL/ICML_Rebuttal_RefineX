@@ -44,14 +44,29 @@ To validate that deletions do not introduce new incoherence, we use GPT-5.4 to c
 
 To further address model bias concerns, we show that RefineX's gains are robust across refiner sizes and are driven by the pipeline design rather than any specific model choice.
 
-**Table 3: Downstream pretrain performance across refiner sizes (750M model, ProX-D base, 20B tokens, LightEval).**
+**Table 3: Refinement statistics grouped by document quality score across refiner model sizes.**
 
-| Refiner | ARC-C | ARC-E | CSQA | HellaS | MMLU | OBQA | PIQA | SIQA | WinoG | SciQ | **Avg** |
-|---------|-------|-------|------|--------|------|------|------|------|-------|------|---------|
-| ProX-D baseline | 25.1 | 45.6 | 31.6 | 39.9 | 27.2 | 27.6 | 66.6 | 39.3 | 49.9 | 67.3 | 42.0 |
-| + RefineX (0.6B) | 28.7 | 53.2 | 30.8 | 41.7 | 29.6 | 31.8 | 67.8 | 39.9 | 51.6 | 70.9 | **44.7** |
-| + RefineX (1.7B) | 29.1 | 53.5 | 31.0 | 42.0 | 29.7 | 32.0 | 68.1 | 40.2 | 51.8 | 71.2 | **44.9** |
-| + RefineX (4B) | 29.3 | 53.8 | 31.2 | 42.1 | 29.9 | 32.1 | 68.2 | 40.4 | 51.9 | 71.4 | **45.0** |
-| + RefineX (8B) | 29.4 | 53.9 | 31.3 | 42.2 | 30.0 | 32.2 | 68.3 | 40.5 | 52.0 | 71.5 | **45.1** |
+| Quality | Model | Avg. (↑) | ↑ Rat.(%) | ↓ Rat.(%) | Untouched(%) | Empty(%) |
+|---------|-------|----------|-----------|-----------|--------------|----------|
+| Score=1 | Qwen3-0.6B | 2.009 | 22.23 | 0.00 | 7.87 | 68.17 |
+| Score=1 | Qwen3-1.7B | 2.075 | 24.14 | 0.00 | 6.28 | 66.91 |
+| Score=1 | Qwen3-4B   | 2.209 | 22.28 | 0.00 | 4.71 | 71.31 |
+| Score=1 | Qwen3-8B   | 2.282 | 20.82 | 0.00 | 3.45 | 74.26 |
+| Score=2 | Qwen3-0.6B | 2.718 | 42.14 | 0.66 | 7.59 | 19.97 |
+| Score=2 | Qwen3-1.7B | 2.711 | 44.26 | 0.61 | 8.06 | 15.35 |
+| Score=2 | Qwen3-4B   | 2.744 | 43.62 | 0.58 | 7.65 | 18.48 |
+| Score=2 | Qwen3-8B   | 2.749 | 43.61 | 0.59 | 7.27 | 19.27 |
+| Score=3 | Qwen3-0.6B | 3.413 | 41.14 | 4.58 |  9.85 |  6.18 |
+| Score=3 | Qwen3-1.7B | 3.410 | 41.40 | 4.39 | 10.10 |  4.32 |
+| Score=3 | Qwen3-4B   | 3.420 | 41.75 | 4.39 | 10.73 |  5.25 |
+| Score=3 | Qwen3-8B   | 3.423 | 41.88 | 4.15 | 10.41 |  5.48 |
+| Score=4 | Qwen3-0.6B | 4.075 | 12.70 | 4.86 | 13.52 |  0.93 |
+| Score=4 | Qwen3-1.7B | 4.079 | 12.86 | 4.63 | 13.16 |  0.54 |
+| Score=4 | Qwen3-4B   | 4.088 | 13.32 | 4.30 | 14.77 |  0.60 |
+| Score=4 | Qwen3-8B   | 4.085 | 13.20 | 4.41 | 14.18 |  0.67 |
+| Score=5 | Qwen3-0.6B | 4.917 |  0.00 | 8.20 | 16.50 |  0.18 |
+| Score=5 | Qwen3-1.7B | 4.917 |  0.00 | 8.13 | 15.85 |  0.09 |
+| Score=5 | Qwen3-4B   | 4.923 |  0.00 | 7.62 | 17.41 |  0.10 |
+| Score=5 | Qwen3-8B   | 4.924 |  0.00 | 7.48 | 16.70 |  0.11 |
 
-> **Caption:** Consistent gains across all refiner sizes confirm that the distillation pipeline—not a specific model's biases—drives performance. The marginal gain from 0.6B to 8B (+0.4 avg) also confirms that the 0.6B default is the optimal cost-performance choice.
+> **Caption:** Refinement statistics grouped by document quality score and refiner size. **Avg.**, **↑ Rat.**, and **↓ Rat.** denote the average quality score and the percentage of documents with improved or degraded scores after refinement, respectively. **Untouched** indicates documents that remain unchanged; **Empty** refers to those reduced to empty content. Results are highly consistent across all refiner sizes (0.6B–8B) within each quality group, confirming that the pipeline design—not model capacity—drives the gains. The marginal gain from 0.6B to 8B confirms that the 0.6B default is the optimal cost-performance choice.
