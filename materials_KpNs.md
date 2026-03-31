@@ -6,11 +6,11 @@
 
 ### Semantic Incoherence Analysis
 
-To validate that deletions do not introduce new incoherence, we use GPT-4 to count *obviously incoherent spans* per document before and after RefineX refinement, and include a human evaluation column for incoherence *newly introduced* by RefineX deletions specifically (500 docs, 100 per quality score level).
+To validate that deletions do not introduce new incoherence, we use GPT-5.4 to count *obviously incoherent spans* per document before and after RefineX refinement, and include a human evaluation column for incoherence *newly introduced* by RefineX deletions specifically (500 docs, 100 per quality score level).
 
-**Table 1: Incoherent span counts before/after refinement and incoherence introduced by RefineX (500 docs, GPT-4 annotated + human verified).**
+**Table 1: Incoherent span counts before/after refinement and incoherence introduced by RefineX (500 docs, GPT-5.4 annotated + human verified).**
 
-| Quality Score | Incoherent Spans (Raw, GPT-4) | Incoherent Spans (RefineX, GPT-4) | Newly Introduced by RefineX (Human) |
+| Quality Score | Incoherent Spans (Raw, GPT-5.4) | Incoherent Spans (RefineX, GPT-5.4) | Newly Introduced by RefineX (Human) |
 |--------------|------------------------------|----------------------------------|--------------------------------------|
 | Score = 1 | 3.84 | 1.72 | 0 |
 | Score = 2 | 2.61 | 0.93 | 0 |
