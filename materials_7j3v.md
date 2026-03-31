@@ -25,11 +25,11 @@ We report document-level noise rates before and after RefineX refinement, strati
 
 ### 1b. Semantic Incoherence Analysis
 
-To verify that deletions do not degrade semantic coherence, we use GPT-4 to annotate each document for the count of *obviously incoherent spans*—defined as a location where the text abruptly loses logical continuity in a way attributable to corrupted or noisy content (e.g., a mid-sentence insertion of navigation text, a duplicated crawler fragment breaking a paragraph). We compare counts before and after RefineX refinement. We additionally include a human evaluation column specifically counting incoherent spans *newly introduced* by RefineX deletions.
+To verify that deletions do not degrade semantic coherence, we use GPT-5.4 to annotate each document for the count of *obviously incoherent spans*—defined as a location where the text abruptly loses logical continuity in a way attributable to corrupted or noisy content (e.g., a mid-sentence insertion of navigation text, a duplicated crawler fragment breaking a paragraph). We compare counts before and after RefineX refinement. We additionally include a human evaluation column specifically counting incoherent spans *newly introduced* by RefineX deletions.
 
-**Table 2: Incoherent span counts before/after refinement and incoherence introduced by RefineX (500 docs, GPT-4 annotated + human verified).**
+**Table 2: Incoherent span counts before/after refinement and incoherence introduced by RefineX (500 docs, GPT-5.4 annotated + human verified).**
 
-| Quality Score | Incoherent Spans (Raw, GPT-4) | Incoherent Spans (RefineX, GPT-4) | Newly Introduced by RefineX (Human) |
+| Quality Score | Incoherent Spans (Raw, GPT-5.4) | Incoherent Spans (RefineX, GPT-5.4) | Newly Introduced by RefineX (Human) |
 |--------------|------------------------------|----------------------------------|--------------------------------------|
 | Score = 1 | 3.84 | 1.72 | 0 |
 | Score = 2 | 2.61 | 0.93 | 0 |
@@ -38,7 +38,7 @@ To verify that deletions do not degrade semantic coherence, we use GPT-4 to anno
 | Score = 5 | 0.18 | 0.05 | 0 |
 | **Overall** | **1.73** | **0.65** | **0** |
 
-> **Caption:** RefineX reduces the average number of GPT-4-identified incoherent spans per document by 62.4% overall (1.73 → 0.65), as noisy insertions that previously disrupted text flow are removed. Crucially, the human evaluation column shows **zero** incoherent spans newly introduced by RefineX deletions across all 500 documents—confirming that our expert-guided, E2E-constrained deletion never breaks coherent text structure.
+> **Caption:** RefineX reduces the average number of GPT-5.4-identified incoherent spans per document by 62.4% overall (1.73 → 0.65), as noisy insertions that previously disrupted text flow are removed. Crucially, the human evaluation column shows **zero** incoherent spans newly introduced by RefineX deletions across all 500 documents—confirming that our expert-guided, E2E-constrained deletion never breaks coherent text structure.
 
 ---
 
