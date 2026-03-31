@@ -8,11 +8,11 @@ The following tables are referenced in the response to validate that the deletio
 
 ### Semantic Incoherence Analysis
 
-We use GPT-4 to annotate each document for the count of *obviously incoherent spans* before and after RefineX refinement, and include a human evaluation column for incoherence *newly introduced* by RefineX deletions specifically.
+We use GPT-5.4 to annotate each document for the count of *obviously incoherent spans* before and after RefineX refinement, and include a human evaluation column for incoherence *newly introduced* by RefineX deletions specifically.
 
-**Table 1: Incoherent span counts before/after refinement and incoherence introduced by RefineX (500 docs, GPT-4 annotated + human verified).**
+**Table 1: Incoherent span counts before/after refinement and incoherence introduced by RefineX (500 docs, GPT-5.4 annotated + human verified).**
 
-| Quality Score | Incoherent Spans (Raw, GPT-4) | Incoherent Spans (RefineX, GPT-4) | Newly Introduced by RefineX (Human) |
+| Quality Score | Incoherent Spans (Raw, GPT-5.4) | Incoherent Spans (RefineX, GPT-5.4) | Newly Introduced by RefineX (Human) |
 |--------------|------------------------------|----------------------------------|--------------------------------------|
 | Score = 1 | 3.84 | 1.72 | 0 |
 | Score = 2 | 2.61 | 0.93 | 0 |
